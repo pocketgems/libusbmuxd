@@ -1,5 +1,8 @@
+# Temporarly fix for an issue for NuGet/AppVeyor connectivity;
+# see appveyor.statuspage.io for more info. Should be removed when connectivty
+# is restored.
 before_build:
-  - nuget restore
+  - nuget restore -NonInteractive
 
 build_script:
   - msbuild libusbmuxd.sln /p:Configuration=Debug /p:Platform=Win32 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
