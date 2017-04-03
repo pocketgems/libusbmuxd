@@ -23,6 +23,11 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+
+#ifdef _MSC_VER
+#include "msc_config.h"
+#endif
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -49,16 +54,14 @@
 #define ECONNREFUSED 107
 #endif
 
-#include <unistd.h>
-#include <signal.h>
-
 #ifdef WIN32
 #include <winsock2.h>
 #include <windows.h>
-#ifndef HAVE_SLEEP
+#if !HAVE_SLEEP || !defined(Sleep)
 #define sleep(x) Sleep(x*1000)
 #endif
 #else
+#include <unistd.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <pthread.h>
