@@ -10,12 +10,6 @@ matrix:
 
 language: c
 
-env:
-  global:
-  - PLIST_VERSION=1.13.0-117
-  - CFLAGS=-fPIC
-  - LIBUSBMUXD_VERSION_PREFIX=1.1.0
-
 addons:
   apt:
     packages:
@@ -24,7 +18,12 @@ addons:
     - dh-autoreconf
     - dput
     - osc
-    - fakeroot
+
+env:
+  global:
+  - PLIST_VERSION=2.0.1-155
+  - CFLAGS=-fPIC
+  - LIBUSBMUXD_VERSION_PREFIX=1.1.0
 
 before_install:
 - test -n $CC && unset CC
