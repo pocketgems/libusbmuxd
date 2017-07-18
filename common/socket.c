@@ -484,7 +484,11 @@ int socket_receive_timeout(int fd, void *data, size_t length, int flags,
 		return -ECONNRESET;
 	}
 	if (result < 0) {
+#ifdef WIN32
+		return -WSAGetLastError();
+#else
 		return -errno;
+#endif
 	}
 	return result;
 }
