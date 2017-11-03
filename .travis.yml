@@ -10,18 +10,9 @@ matrix:
 
 language: c
 
-addons:
-  apt:
-    packages:
-    - devscripts
-    - debhelper
-    - dh-autoreconf
-    - dput
-    - osc
-
 env:
   global:
-  - PLIST_VERSION=2.0.1-155
+  - PLIST_VERSION=2.0.1-157
   - CFLAGS=-fPIC
   - LIBUSBMUXD_VERSION_PREFIX=1.1.0
 
