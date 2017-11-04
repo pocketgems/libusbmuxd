@@ -1776,7 +1776,7 @@ USBMUXD_API int usbmuxd_get_socket_type(enum usbmuxd_socket_type* value)
 	return 0;
 }
 
-USBMUXD_API_MSC int usbmuxd_set_tcp_endpoint(char* host, uint16_t port)
+USBMUXD_API_MSC int usbmuxd_set_tcp_endpoint(const char* host, uint16_t port)
 {
 	free(tcp_host);
 	tcp_host = strdup(host);
