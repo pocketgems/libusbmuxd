@@ -121,6 +121,7 @@ static enum usbmuxd_socket_type socket_type =
 #endif
 
 static char* tcp_host = "127.0.0.1";
+static int tcp_host_initialized = 0;
 static uint16_t tcp_port = USBMUXD_SOCKET_PORT;
 
 static struct collection devices;
@@ -1778,8 +1779,11 @@ USBMUXD_API int usbmuxd_get_socket_type(enum usbmuxd_socket_type* value)
 
 USBMUXD_API_MSC int usbmuxd_set_tcp_endpoint(const char* host, uint16_t port)
 {
-	free(tcp_host);
+	if (tcp_host_initialized) {
+		free(tcp_host);
+	}
 	tcp_host = strdup(host);
+	tcp_host_initialized = 1;
 	tcp_port = port;
 	return 0;
 }
