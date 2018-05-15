@@ -7,7 +7,7 @@ before_build:
   - cmd: "%VCPKG_ROOT%\\bootstrap-vcpkg.bat"
   - cmd: "%VCPKG_ROOT%\\vcpkg version"
   - cmd: "%VCPKG_ROOT%\\vcpkg integrate install"
-  - cmd: "%VCPKG_ROOT%\\vcpkg install libplist"
+  - cmd: "%VCPKG_ROOT%\\vcpkg install libplist:x86-windows libplist:x64-windows"
 
 build_script:
   - msbuild libusbmuxd.sln /p:Configuration=Debug /p:Platform=Win32 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
