@@ -66,6 +66,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_MBCS;WIN32;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>include;common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(OutDir)$(ProjectName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -78,6 +79,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_MBCS;WIN32;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>include;common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(OutDir)$(ProjectName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -92,6 +94,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_MBCS;WIN32;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>include;common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(OutDir)$(ProjectName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -108,6 +111,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_MBCS;WIN32;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>include;common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ProgramDataBaseFileName>$(OutDir)$(ProjectName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
