@@ -27,4 +27,5 @@
 #define __func__ __FUNCTION__
 #define strncasecmp _strnicmp
 #define strcasecmp _stricmp
+#define PACKAGE_STRING "libusbmuxd 1.1.0"
 #endif
