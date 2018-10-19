@@ -241,7 +241,7 @@ USBMUXD_API_MSC int usbmuxd_get_device_by_udid(const char *udid, usbmuxd_device_
  * @return 0 if no matching device is connected, 1 if the device was found,
  *    or a negative value on error.
  */
-int usbmuxd_get_device(const char *udid, usbmuxd_device_info_t *device, enum usbmux_lookup_options options);
+USBMUXD_API_MSC int usbmuxd_get_device(const char *udid, usbmuxd_device_info_t *device, enum usbmux_lookup_options options);
 
 /**
  * Request proxy connection to the specified device and port.
