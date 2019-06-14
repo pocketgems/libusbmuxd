@@ -17,14 +17,10 @@ jobs:
     vmImage: 'vs2017-win2016'
   steps:
   - script: |
-      git clone https://github.com/libimobiledevice-win32/vcpkg
-      vcpkg\bootstrap-vcpkg.bat
-    displayName: Install vcpkg
-  - script: |
-      vcpkg\vcpkg version
-      vcpkg\vcpkg integrate install
-      set VCPKG_BUILD_TYPE=release
-      vcpkg\vcpkg install libplist:%BUILD_ARCH%-windows --head
+      %VCPKG_INSTALLATION_ROOT%\vcpkg version
+      %VCPKG_INSTALLATION_ROOT%\vcpkg integrate install
+      echo.set(VCPKG_BUILD_TYPE %CONFIGURATION%)>> %VCPKG_INSTALLATION_ROOT%\triplets\%BUILD_ARCH%-windows.cmake
+      %VCPKG_INSTALLATION_ROOT%\vcpkg install libplist:%BUILD_ARCH%-windows --head
     displayName: Install libplist
   - task: MSBuild@1
     inputs:
@@ -32,12 +28,6 @@ jobs:
       platform: $(PLATFORM)
       configuration: Release
     displayName: 'Release build'
-  - task: MSBuild@1
-    inputs:
-      solution: 'libusbmuxd.sln' 
-      platform: $(PLATFORM)
-      configuration: Debug
-    displayName: 'Debug build'
   - script: |
       mkdir %BUILD_ARTIFACTSTAGINGDIRECTORY%\libusbmuxd\%RID%\bin\
       mkdir %BUILD_ARTIFACTSTAGINGDIRECTORY%\libusbmuxd\%RID%\licenses\
