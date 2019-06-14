@@ -143,7 +143,7 @@ USBMUXD_API_MSC int usbmuxd_get_tcp_endpoint(char** host, uint16_t* port);
  *
  * @return 0 on success or a negative errno value.
  */
-int usbmuxd_events_subscribe(usbmuxd_subscription_context_t *context, usbmuxd_event_cb_t callback, void *user_data);
+USBMUXD_API_MSC int usbmuxd_events_subscribe(usbmuxd_subscription_context_t *context, usbmuxd_event_cb_t callback, void *user_data);
 
 /**
  * Unsubscribe callback function
@@ -152,7 +152,7 @@ int usbmuxd_events_subscribe(usbmuxd_subscription_context_t *context, usbmuxd_ev
  *
  * @return 0 on success or a negative errno value.
  */
-int usbmuxd_events_unsubscribe(usbmuxd_subscription_context_t context);
+USBMUXD_API_MSC int usbmuxd_events_unsubscribe(usbmuxd_subscription_context_t context);
 
 /**
  * Subscribe a callback (deprecated)
