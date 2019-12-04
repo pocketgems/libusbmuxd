@@ -1079,6 +1079,15 @@ static void *device_monitor(void *data)
 	thread_cleanup_push(device_monitor_cleanup, NULL);
 #endif
 	do {
+		mutex_lock(&listener_mutex);
+		if (collection_count(&listeners) == 0) {
+			running = 0;
+		}
+		mutex_unlock(&listener_mutex);
+
+		if (!running) {
+			break;
+		}
 
 		listenfd = usbmuxd_listen();
 		if (listenfd < 0) {
@@ -1091,12 +1100,6 @@ static void *device_monitor(void *data)
 			    break;
 			}
 		}
-
-		mutex_lock(&listener_mutex);
-		if (collection_count(&listeners) == 0) {
-			running = 0;
-		}
-		mutex_unlock(&listener_mutex);
 	} while (running);
 
 #ifdef HAVE_THREAD_CLEANUP
