@@ -33,6 +33,10 @@ endif()
 
 target_link_libraries(libusbmuxd libplist)
 
+if (UNIX AND NOT APPLE)
+    target_link_libraries(libusbmuxd pthread)
+endif()
+
 ### iproxy ###
 
 add_executable(iproxy
