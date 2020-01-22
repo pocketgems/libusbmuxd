@@ -18,16 +18,22 @@ target_include_directories(libusbmuxd
         common/
 )
 
-if (NOT WIN32)
+if (APPLE)
     target_compile_definitions(libusbmuxd
         PRIVATE
             -DSO_NOSIGPIPE
             -DHAVE_STPNCPY=1
     )
-else()
+elseif(WIN32)
     target_compile_definitions(libusbmuxd
         PRIVATE
             -DSO_NOSIGPIPE
+    )
+else() # UNIX
+    # SO_NOSIGPIPE not supported on linux
+    target_compile_definitions(libusbmuxd
+        PRIVATE
+            -DHAVE_STPNCPY=1
     )
 endif()
 
